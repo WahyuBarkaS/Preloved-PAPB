@@ -55,6 +55,12 @@ class _HomePageState extends State<HomePage> {
       'title': 'Daleman Fitri',
       'harga': 'Rp. 500.000,-',
       'category': 'Daleman'
+    },
+    {
+      'image': '',
+      'title': 'Kaos Reyhan',
+      'harga': 'Rp. 500.000,-',
+      'category': 'Kaos'
     }
   ];
 
@@ -97,7 +103,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         title: Image.asset(
           'assets/logo.png',
-          height: 20,
+          height: MediaQuery.of(context).size.height * 0.02,
         ),
         actions: [
           IconButton(
@@ -115,7 +121,8 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             children: [
               SizedBox(
-                height: 150,
+                //height: 150,
+                height: MediaQuery.of(context).size.height * 0.2,
                 child: PageView.builder(
                     onPageChanged: (value) {
                       setState(() {
@@ -130,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                     }),
               ),
               SizedBox(
-                height: 20,
+                height: MediaQuery.of(context).size.height * 0.05,
                 child: Center(
                   child: ListView.builder(
                     shrinkWrap: true,
@@ -152,13 +159,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               Row(
                 children: [
                   Expanded(
                     child: SizedBox(
-                      height: 40,
+                      height: MediaQuery.of(context).size.height * 0.05,
                       child: TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -167,11 +174,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    height: MediaQuery.of(context).size.height * 0.02,
                   ),
                   Container(
-                    height: 40,
-                    width: 40,
+                    //height: 40,
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    //width: 40,
+                    width: MediaQuery.of(context).size.height * 0.05,
                     decoration: BoxDecoration(
                         color: Colors.amber,
                         borderRadius: BorderRadius.circular(5)),
@@ -180,7 +189,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(
-                height: 20,
+                //height: 20,
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               Container(
                 child: Row(
@@ -190,7 +200,12 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           CategoryButton(
-                            icon: Icon(Icons.auto_awesome_outlined),
+                            selected: categorySelected == '' ? true : false,
+                            image: Image.asset(
+                              'assets/star.png',
+                              //height: 25,
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
                             onPressed: () {
                               setState(() {
                                 categorySelected = '';
@@ -199,7 +214,8 @@ class _HomePageState extends State<HomePage> {
                             },
                           ),
                           SizedBox(
-                            height: 5,
+                            //height: 5,
+                            height: MediaQuery.of(context).size.height * 0.01,
                           ),
                           Text('For you')
                         ],
@@ -209,7 +225,13 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           CategoryButton(
-                            icon: Icon(Icons.auto_awesome_outlined),
+                            selected:
+                                categorySelected == 'Blouse' ? true : false,
+                            image: Image.asset(
+                              'assets/bid.png',
+                              //height: 25,
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
                             onPressed: () {
                               setState(() {
                                 categorySelected = 'Blouse';
@@ -218,7 +240,8 @@ class _HomePageState extends State<HomePage> {
                             },
                           ),
                           SizedBox(
-                            height: 5,
+                            //height: 5,
+                            height: MediaQuery.of(context).size.height * 0.01,
                           ),
                           Text('Bid')
                         ],
@@ -228,7 +251,13 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           CategoryButton(
-                            icon: Icon(Icons.auto_awesome_outlined),
+                            selected:
+                                categorySelected == 'Coklat' ? true : false,
+                            image: Image.asset(
+                              'assets/dress.png',
+                              //height: 25,
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
                             onPressed: () {
                               setState(() {
                                 categorySelected = 'Coklat';
@@ -237,7 +266,8 @@ class _HomePageState extends State<HomePage> {
                             },
                           ),
                           SizedBox(
-                            height: 5,
+                            //height: 5,
+                            height: MediaQuery.of(context).size.height * 0.01,
                           ),
                           Text('Dress')
                         ],
@@ -247,7 +277,13 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           CategoryButton(
-                            icon: Icon(Icons.auto_awesome_outlined),
+                            selected:
+                                categorySelected == 'Jeruk' ? true : false,
+                            image: Image.asset(
+                              'assets/skirt.png',
+                              //height: 25,
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
                             onPressed: () {
                               setState(() {
                                 categorySelected = 'Jeruk';
@@ -256,7 +292,8 @@ class _HomePageState extends State<HomePage> {
                             },
                           ),
                           SizedBox(
-                            height: 5,
+                            //height: 5,
+                            height: MediaQuery.of(context).size.height * 0.01,
                           ),
                           Text('Skirt')
                         ],
@@ -266,7 +303,13 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           CategoryButton(
-                            icon: Icon(Icons.photo),
+                            selected:
+                                categorySelected == 'Daleman' ? true : false,
+                            image: Image.asset(
+                              'assets/jeans.png',
+                              //height: 25,
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
                             onPressed: () {
                               setState(() {
                                 categorySelected = 'Daleman';
@@ -275,7 +318,8 @@ class _HomePageState extends State<HomePage> {
                             },
                           ),
                           SizedBox(
-                            height: 5,
+                            //height: 5,
+                            height: MediaQuery.of(context).size.height * 0.01,
                           ),
                           Text('Jeans')
                         ],
@@ -285,16 +329,22 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           CategoryButton(
-                            icon: Icon(Icons.photo),
+                            selected: categorySelected == 'Kaos' ? true : false,
+                            image: Image.asset(
+                              'assets/tshirt.png',
+                              //height: 25,
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
                             onPressed: () {
                               setState(() {
-                                categorySelected = 'Daleman';
+                                categorySelected = 'Kaos';
                                 categorySelector();
                               });
                             },
                           ),
                           SizedBox(
-                            height: 5,
+                            //height: 5,
+                            height: MediaQuery.of(context).size.height * 0.01,
                           ),
                           Text('T-shirt')
                         ],
@@ -304,15 +354,16 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                //height: 20,
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               GridView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
-                      childAspectRatio: 3.2 / 5,
-                      crossAxisSpacing: 20,
+                      childAspectRatio: 4 / 5,
+                      crossAxisSpacing: 30,
                       mainAxisSpacing: 20),
                   itemCount: dataCategory.length,
                   itemBuilder: (BuildContext ctx, index) {
@@ -322,14 +373,16 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Container(
                             //Ganti jadi Gambar
-                            height: 200,
+                            //height: 200,
+                            height: MediaQuery.of(context).size.height * 0.2,
                             decoration: BoxDecoration(
                                 //color: Colors.grey,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Image.asset('assets/blouse.png'),
                           ),
                           SizedBox(
-                            height: 10,
+                            //height: 10,
+                            height: MediaQuery.of(context).size.height * 0.01,
                           ),
                           Text(dataCategory[index]['title']),
                           Text(
@@ -349,9 +402,14 @@ class _HomePageState extends State<HomePage> {
 }
 
 class CategoryButton extends StatelessWidget {
-  final Icon icon;
+  final Image image;
+  final bool selected;
   final VoidCallback onPressed;
-  const CategoryButton({Key? key, required this.icon, required this.onPressed})
+  const CategoryButton(
+      {Key? key,
+      required this.image,
+      required this.onPressed,
+      this.selected = false})
       : super(key: key);
 
   @override
@@ -361,8 +419,9 @@ class CategoryButton extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         decoration: BoxDecoration(
-            color: Colors.amber, borderRadius: BorderRadius.circular(10)),
-        child: Center(child: icon),
+            color: selected ? Colors.amber : Colors.grey,
+            borderRadius: BorderRadius.circular(10)),
+        child: Center(child: image),
       ),
     );
   }
