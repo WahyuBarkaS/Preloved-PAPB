@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/tabs/home/detail_item_page.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -371,14 +373,21 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            //Ganti jadi Gambar
-                            //height: 200,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            decoration: BoxDecoration(
-                                //color: Colors.grey,
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Image.asset('assets/blouse.png'),
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(
+                                DetailItem(item: dataCategory[index]),
+                              );
+                            },
+                            child: Container(
+                              //Ganti jadi Gambar
+                              //height: 200,
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              decoration: BoxDecoration(
+                                  //color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Image.asset('assets/blouse.png'),
+                            ),
                           ),
                           SizedBox(
                             //height: 10,
