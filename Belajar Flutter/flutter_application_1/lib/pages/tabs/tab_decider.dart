@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/tabs/home/home_page.dart';
+import 'package:flutter_application_1/pages/tabs/wishlist/wishlist_page.dart';
 
 class TabDecider extends StatefulWidget {
   const TabDecider({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _TabDeciderState extends State<TabDecider> {
                 index: currentIndex,
                 children: [
                   HomePage(),
-                  HomePage(),
+                  WishlistPage(),
                   HomePage(),
                   HomePage(),
                 ],

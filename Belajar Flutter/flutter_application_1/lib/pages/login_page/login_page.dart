@@ -28,9 +28,11 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        'assets/ilustrasi3.jpg',
-                        height: MediaQuery.of(context).size.height * 0.4,
+                      Center(
+                        child: Image.asset(
+                          'assets/ilustrasi3.jpg',
+                          height: MediaQuery.of(context).size.height * 0.4,
+                        ),
                       ),
                       Text(
                         'Login',

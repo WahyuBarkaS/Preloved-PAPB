@@ -27,9 +27,11 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    'assets/ilustrasi2.jpg',
-                    height: MediaQuery.of(context).size.height * 0.4,
+                  Center(
+                    child: Image.asset(
+                      'assets/ilustrasi2.jpg',
+                      height: MediaQuery.of(context).size.height * 0.4,
+                    ),
                   ),
                   Text(
                     'Daftar Sekarang',

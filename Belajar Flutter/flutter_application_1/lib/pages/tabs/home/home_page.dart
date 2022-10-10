@@ -68,6 +68,9 @@ class _HomePageState extends State<HomePage> {
 
   List dataCategory = [];
 
+  PageController controllerCarousel =
+      PageController(viewportFraction: 1, keepPage: true);
+
   categorySelector() {
     dataCategory.clear();
     dataItem.forEach((element) {
@@ -79,12 +82,23 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  autoScroll() {
+    Future.delayed(Duration(seconds: 3), () {
+      controllerCarousel.animateToPage(
+          currentSlider == (dataCarousel.length - 1) ? 0 : currentSlider + 1,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.linear);
+      autoScroll();
+    });
+  }
+
   String categorySelected = '';
 
   int currentSlider = 0;
 
   @override
   void initState() {
+    autoScroll();
     categorySelector();
     super.initState();
   }
@@ -123,9 +137,12 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             children: [
               SizedBox(
-                //height: 150,
-                height: MediaQuery.of(context).size.height * 0.2,
+                height:
+                    MediaQuery.of(context).orientation == Orientation.portrait
+                        ? MediaQuery.of(context).size.height * 0.2
+                        : 400,
                 child: PageView.builder(
+                    controller: controllerCarousel,
                     onPageChanged: (value) {
                       setState(() {
                         currentSlider = value;
@@ -134,7 +151,10 @@ class _HomePageState extends State<HomePage> {
                     itemCount: dataCarousel.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        child: Image.asset(dataCarousel[index]),
+                        child: Image.asset(
+                          dataCarousel[index],
+                          fit: BoxFit.fitHeight,
+                        ),
                       );
                     }),
               ),
@@ -364,7 +384,7 @@ class _HomePageState extends State<HomePage> {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
-                      childAspectRatio: 4 / 5,
+                      childAspectRatio: 4 / 6,
                       crossAxisSpacing: 30,
                       mainAxisSpacing: 20),
                   itemCount: dataCategory.length,
@@ -382,7 +402,6 @@ class _HomePageState extends State<HomePage> {
                             child: Container(
                               //Ganti jadi Gambar
                               //height: 200,
-                              height: MediaQuery.of(context).size.height * 0.2,
                               decoration: BoxDecoration(
                                   //color: Colors.grey,
                                   borderRadius: BorderRadius.circular(20)),

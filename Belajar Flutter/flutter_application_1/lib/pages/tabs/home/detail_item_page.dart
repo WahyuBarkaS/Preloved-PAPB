@@ -1,7 +1,5 @@
 // ignore_for_file: unused_import, unnecessary_import
 
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -22,7 +20,7 @@ class _DetailItemState extends State<DetailItem> {
     return Scaffold(
       body: SafeArea(
         child: Stack(children: [
-          Column(
+          ListView(
             children: [
               Column(
                 children: [
@@ -87,37 +85,47 @@ class _DetailItemState extends State<DetailItem> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.14,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Icon(Icons.bookmark_outline),
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 70),
-                          decoration: BoxDecoration(
-                              color: Colors.amber,
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Text(
-                            'Tambahkan ke keranjang',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16),
-                          ),
-                        )
-                      ],
-                    )
                   ],
                 ),
               )
             ],
+          ),
+          Positioned(
+            bottom: 10,
+            left: 20,
+            right: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Icon(Icons.bookmark_outline),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Center(
+                      child: Text(
+                        'Tambahkan ke keranjang',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
           Positioned(
               top: 10,
