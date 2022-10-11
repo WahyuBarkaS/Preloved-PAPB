@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/tabs/home/home_page.dart';
+import 'package:flutter_application_1/pages/tabs/keranjang/keranjang.dart';
 import 'package:flutter_application_1/pages/tabs/wishlist/wishlist_page.dart';
 
 class TabDecider extends StatefulWidget {
@@ -25,8 +26,8 @@ class _TabDeciderState extends State<TabDecider> {
                 index: currentIndex,
                 children: [
                   HomePage(),
+                  Keranjang(),
                   WishlistPage(),
-                  HomePage(),
                   HomePage(),
                 ],
               ),
@@ -43,10 +44,9 @@ class _TabDeciderState extends State<TabDecider> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    child: Icon(
-                      Icons.home,
-                      color: currentIndex == 0 ? Colors.amber : Colors.white,
-                    ),
+                    child: currentIndex == 0
+                        ? Icon(Icons.home, color: Colors.amber)
+                        : Icon(Icons.home_outlined, color: Colors.white),
                     onTap: () {
                       setState(() {
                         currentIndex = 0;
@@ -54,8 +54,10 @@ class _TabDeciderState extends State<TabDecider> {
                     },
                   ),
                   InkWell(
-                    child: Icon(Icons.bookmark_outline,
-                        color: currentIndex == 1 ? Colors.amber : Colors.white),
+                    child: currentIndex == 1
+                        ? Icon(Icons.shopping_cart, color: Colors.amber)
+                        : Icon(Icons.shopping_cart_outlined,
+                            color: Colors.white),
                     onTap: () {
                       setState(() {
                         currentIndex = 1;
@@ -63,8 +65,9 @@ class _TabDeciderState extends State<TabDecider> {
                     },
                   ),
                   InkWell(
-                    child: Icon(Icons.notifications_outlined,
-                        color: currentIndex == 2 ? Colors.amber : Colors.white),
+                    child: currentIndex == 2
+                        ? Icon(Icons.bookmark, color: Colors.amber)
+                        : Icon(Icons.bookmark_outline, color: Colors.white),
                     onTap: () {
                       setState(() {
                         currentIndex = 2;
@@ -72,8 +75,9 @@ class _TabDeciderState extends State<TabDecider> {
                     },
                   ),
                   InkWell(
-                    child: Icon(Icons.person_outline,
-                        color: currentIndex == 3 ? Colors.amber : Colors.white),
+                    child: currentIndex == 3
+                        ? Icon(Icons.person, color: Colors.amber)
+                        : Icon(Icons.person_outline, color: Colors.white),
                     onTap: () {
                       setState(() {
                         currentIndex = 3;

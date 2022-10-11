@@ -108,13 +108,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        leading: IconButton(
-          icon: Icon(
-            Icons.search,
-            color: Colors.grey,
-          ),
-          onPressed: () {},
-        ),
+        // leading: IconButton(
+        //   icon: Icon(
+        //     Icons.search,
+        //     color: Colors.grey,
+        //   ),
+        //   onPressed: () {},
+        // ),
         elevation: 0.0,
         backgroundColor: Colors.white,
         title: Image.asset(
@@ -122,13 +122,13 @@ class _HomePageState extends State<HomePage> {
           height: MediaQuery.of(context).size.height * 0.02,
         ),
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.grey,
-            ),
-            onPressed: () {},
-          ),
+          // IconButton(
+          //   icon: Icon(
+          //     Icons.shopping_cart_outlined,
+          //     color: Colors.grey,
+          //   ),
+          //   onPressed: () {},
+          // ),
         ],
       ),
       body: SafeArea(
@@ -191,23 +191,28 @@ class _HomePageState extends State<HomePage> {
                       child: TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.only(
+                              left: 15, bottom: 11, top: 11, right: 15),
+                          hintText: "Cari barang yang anda inginkan",
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
+                    width: MediaQuery.of(context).size.width * 0.02,
                   ),
                   Container(
                     //height: 40,
                     height: MediaQuery.of(context).size.height * 0.05,
                     //width: 40,
-                    width: MediaQuery.of(context).size.height * 0.05,
+                    width: MediaQuery.of(context).size.width * 0.1,
                     decoration: BoxDecoration(
                         color: Colors.amber,
                         borderRadius: BorderRadius.circular(5)),
-                    child: Center(child: Icon(Icons.tune)),
-                  ),
+                    child: Center(
+                      child: Icon(Icons.search),
+                    ),
+                  )
                 ],
               ),
               SizedBox(
