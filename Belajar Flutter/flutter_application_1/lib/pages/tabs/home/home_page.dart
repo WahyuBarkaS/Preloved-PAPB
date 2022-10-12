@@ -117,6 +117,7 @@ class _HomePageState extends State<HomePage> {
         // ),
         elevation: 0.0,
         backgroundColor: Colors.white,
+        shadowColor: Color(0xffC9DEEB).withOpacity(0.33),
         title: Image.asset(
           'assets/logo.png',
           height: MediaQuery.of(context).size.height * 0.02,
@@ -420,7 +421,8 @@ class _HomePageState extends State<HomePage> {
                           Text(dataCategory[index]['title']),
                           Text(
                             dataCategory[index]['harga'],
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                color: Colors.red, fontWeight: FontWeight.bold),
                           )
                         ],
                       ),
